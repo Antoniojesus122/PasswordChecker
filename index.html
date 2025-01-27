@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Checker</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Password Checker</h1>
+        <div class="password-checker">
+            <h2>Revisa la seguridad de tu contraseña</h2>
+            <input type="text" id="passwordInput" placeholder="Introduce tu contraseña">
+            <button id="checkPasswordBtn">Revisar contraseña</button>
+            <p id="passwordFeedback"></p>
+        </div>
+        <div class="password-generator">
+            <h2>Genera una contraseña segura</h2>
+            <input type="number" id="passwordLength" placeholder="Longitud (8-20)" min="8" max="20">
+            <button id="generatePasswordBtn">Generar contraseña</button>
+            <p id="generatedPassword"></p>
+        </div>
+    </div>
+    <script type="module" src="src/js/app.js"></script>
+</body>
+</html>
