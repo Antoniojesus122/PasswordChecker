@@ -1,26 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Checker</title>
+    <title>Password Security Checker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Password Checker</h1>
-        <div class="password-checker">
-            <h2>Revisa la seguridad de tu contraseña</h2>
-            <input type="text" id="passwordInput" placeholder="Introduce tu contraseña">
-            <button id="checkPasswordBtn">Revisar contraseña</button>
-            <p id="passwordFeedback"></p>
-        </div>
-        <div class="password-generator">
-            <h2>Genera una contraseña segura</h2>
-            <input type="number" id="passwordLength" placeholder="Longitud (8-20)" min="8" max="20">
-            <button id="generatePasswordBtn">Generar contraseña</button>
-            <p id="generatedPassword"></p>
-        </div>
+        <header>
+            <h1><i class="fas fa-shield-alt"></i> Password Security Checker</h1>
+        </header>
+        
+        <main>
+            <section class="password-checker card">
+                <h2><i class="fas fa-lock"></i> Verificador de Contraseña</h2>
+                <div class="input-group">
+                    <input type="password" id="passwordInput" placeholder="Introduce tu contraseña">
+                    <button class="toggle-password"><i class="fas fa-eye"></i></button>
+                </div>
+                <div class="strength-meter">
+                    <div class="meter-bar"></div>
+                </div>
+                <div class="requirements">
+                    <p class="requirement" data-requirement="length"><i class="fas fa-circle"></i> Mínimo 8 caracteres</p>
+                    <p class="requirement" data-requirement="uppercase"><i class="fas fa-circle"></i> Al menos una mayúscula</p>
+                    <p class="requirement" data-requirement="lowercase"><i class="fas fa-circle"></i> Al menos una minúscula</p>
+                    <p class="requirement" data-requirement="number"><i class="fas fa-circle"></i> Al menos un número</p>
+                    <p class="requirement" data-requirement="special"><i class="fas fa-circle"></i> Al menos un carácter especial</p>
+                </div>
+                <button id="checkPasswordBtn" class="primary-button">
+                    <i class="fas fa-check-circle"></i> Verificar Contraseña
+                </button>
+                <p id="passwordFeedback" class="feedback"></p>
+            </section>
+
+            <section class="password-generator card">
+                <h2><i class="fas fa-key"></i> Generador de Contraseñas</h2>
+                <div class="generator-options">
+                    <div class="length-selector">
+                        <label for="passwordLength">Longitud: <span id="lengthValue">12</span></label>
+                        <input type="range" id="passwordLength" min="8" max="32" value="12">
+                    </div>
+                    <div class="checkboxes">
+                        <label><input type="checkbox" id="includeUppercase" checked> Mayúsculas</label>
+                        <label><input type="checkbox" id="includeLowercase" checked> Minúsculas</label>
+                        <label><input type="checkbox" id="includeNumbers" checked> Números</label>
+                        <label><input type="checkbox" id="includeSymbols" checked> Símbolos</label>
+                    </div>
+                </div>
+                <button id="generatePasswordBtn" class="primary-button">
+                    <i class="fas fa-sync-alt"></i> Generar Contraseña
+                </button>
+                <div class="generated-password">
+                    <input type="text" id="generatedPassword" readonly>
+                    <button id="copyPassword" class="icon-button">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
     </div>
     <script type="module" src="src/js/app.js"></script>
 </body>
